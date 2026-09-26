@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Varun Teja | Technology Portfolio</title>
+  <meta name="description" content="Personal Portfolio of Varun Teja - Student, Programmer, Cybersecurity Enthusiast, and Hardware Enthusiast.">
+  <meta name="theme-color" content="#07090e">
+
+  <!-- Core & Component Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <!-- Favicon / Brand Icon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+
+  <!-- Background Cyber Particle Canvas & Ambient Lighting -->
+  <canvas id="particles-canvas"></canvas>
+  <div class="ambient-glow ambient-glow-1"></div>
+  <div class="ambient-glow ambient-glow-2"></div>
+  <div class="ambient-glow ambient-glow-3"></div>
+  <div class="cyber-grid-overlay"></div>
+
+  <!-- ========================================================================
+       1. NAVIGATION BAR
+       ======================================================================== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="nav-brand">
+        <div class="brand-badge">VT</div>
+        <div class="brand-text">VARUN<span>.TEJA</span></div>
+      </a>
+
+      <!-- Desktop & Mobile Navigation Links -->
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About Me</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#achievements" class="nav-link">Achievements</a></li>
+          <li><a href="#social-media" class="nav-link">Social Media</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-primary nav-cta-btn">Connect</a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         2. HERO / HOME SECTION
+         ====================================================================== -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <!-- Hero Introduction Text -->
+        <div class="hero-content">
+          <div class="hero-chip">
+            <span class="pulse-indicator"></span>
+            <span>SYSTEM // ACTIVE // 2026</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="name-highlight">VARUN TEJA</span>
+          </h1>
+
+          <div class="hero-subtitle-wrapper">
+            <span>Specializing in</span>
+            <span class="hero-roles" id="hero-dynamic-role">Student</span>
+          </div>
+
+          <p class="hero-intro">
+            "I'm a student passionate about coding, cybersecurity, digital editing, electrical hardware, and technology. I enjoy building projects, experimenting with new ideas, and continuously improving my technical skills."
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">
+              <span>Explore My Projects</span>
+              <span style="font-size: 1.1rem;">→</span>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <span>Contact Me</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Futuristic Technology Visual Graphic -->
+        <div class="hero-visual-container">
+          <div class="hero-tech-card">
+            <!-- Orbital Circuit Visualizer -->
+            <div class="tech-graphic-core">
+              <div class="orbital-ring ring-1"></div>
+              <div class="orbital-ring ring-2"></div>
+              <div class="orbital-ring ring-3"></div>
+              
+              <div class="core-avatar-plate">
+                <span>VT</span>
+              </div>
+
+              <!-- Floating Cyber Badges -->
+              <div class="floating-tech-badge badge-top-left">
+                <span>💻</span> <span>Python & C</span>
+              </div>
+              <div class="floating-tech-badge badge-top-right">
+                <span>🔐</span> <span>Cyber Lab</span>
+              </div>
+              <div class="floating-tech-badge badge-bottom-left">
+                <span>⚡</span> <span>Circuit Tech</span>
+              </div>
+            </div>
+
+            <!-- Terminal Status Readout -->
+            <div class="tech-status-panel">
+              <span class="status-pill">
+                <span class="status-dot"></span>
+                <span>STATUS: PRACTICING & BUILDING</span>
+              </span>
+              <span>BRANCH // CME</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3. ABOUT ME SECTION
+         ====================================================================== -->
+    <section id="about" class="section reveal">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="badge-dot"></span>
+            <span>Profile Identity</span>
+          </div>
+          <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+          <p class="section-subtitle">
+            Curious technologist turning conceptual ideas into practical working projects.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Main Narrative Bio Card -->
+          <div class="about-narrative-card glass-card">
+            <div>
+              <p class="about-intro-text">
+                "I am a student with a strong interest in technology and practical learning. I enjoy programming, ethical hacking and cybersecurity, digital editing, electrical and electronic hardware, and creating technical projects. My goal is to continuously learn new technologies and turn my ideas into useful projects."
+              </p>
+            </div>
+
+            <div class="about-stats-grid">
+              <div class="stat-item">
+                <div class="stat-label">Academic Stream</div>
+                <div class="stat-value">Diploma CME</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-label">Core Focus</div>
+                <div class="stat-value">Coding & Security</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-label">Hardware Lab</div>
+                <div class="stat-value">Circuits & Boards</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-label">Creative Media</div>
+                <div class="stat-value">Digital Editing</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6 Identity Cards -->
+          <div class="about-roles-grid" id="about-roles-container">
+            <!-- Dynamically populated from data.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         9. WHAT I DO (6 FUTURISTIC CARDS)
+         ====================================================================== -->
+    <section id="what-i-do" class="section reveal">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="badge-dot"></span>
+            <span>Technical Scope</span>
+          </div>
+          <h2 class="section-title">What <span class="gradient-text">I Do</span></h2>
+          <p class="section-subtitle">
+            Areas where I spend my time learning, experimenting, and developing practical capability.
+          </p>
+        </div>
+
+        <div class="what-i-do-grid" id="what-i-do-grid">
+          <!-- Dynamically populated from data.js with 6 futuristic cards -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. SKILLS SECTION
+         ====================================================================== -->
+    <section id="skills" class="section reveal">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="badge-dot"></span>
+            <span>Skill Matrix</span>
+          </div>
+          <h2 class="section-title">Technical <span class="gradient-text">Skills</span></h2>
+          <p class="section-subtitle">
+            Areas of practical study and continuous learning across software, hardware, and digital media.
+          </p>
+        </div>
+
+        <div class="skills-grid" id="skills-container">
+          <!-- Populated from data.js (Programming, Cybersecurity, Editing, Hardware) -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. PROJECTS SECTION
+         ====================================================================== -->
+    <section id="projects" class="section reveal">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="badge-dot"></span>
+            <span>Engineering Showcase</span>
+          </div>
+          <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+          <p class="section-subtitle">
+            Real software scripts, security sandbox experiments, hardware circuits, and college projects.
+          </p>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="filter-tabs">
+          <button class="filter-btn project-filter-btn active" data-category="all">All Projects</button>
+          <button class="filter-btn project-filter-btn" data-category="python">Python Projects</button>
+          <button class="filter-btn project-filter-btn" data-category="cybersecurity">Cybersecurity Projects</button>
+          <button class="filter-btn project-filter-btn" data-category="hardware">Hardware Projects</button>
+          <button class="filter-btn project-filter-btn" data-category="editing">Editing Projects</button>
+          <button class="filter-btn project-filter-btn" data-category="college">College Projects</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid" id="projects-grid">
+          <!-- Populated dynamically from data.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         6. PROJECT PHOTO GALLERY
+         ====================================================================== -->
+    <section id="gallery" class="section reveal">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="badge-dot"></span>
+            <span>Visual Archive</span>
+          </div>
+          <h2 class="section-title">Project <span class="gradient-text">Gallery</span></h2>
+          <p class="section-subtitle">
+            Photographic snapshots and visual logs from hardware benches, terminal sessions, and design suites.
+          </p>
+        </div>
+
+        <div class="gallery-controls">
+          <!-- Gallery Filter Tabs -->
+          <div class="filter-tabs" style="margin-bottom: 0;">
+            <button class="filter-btn gallery-filter-btn active" data-category="all">All Photos</button>
+            <button class="filter-btn gallery-filter-btn" data-category="coding">Coding</button>
+            <button class="filter-btn gallery-filter-btn" data-category="cybersecurity">Cybersecurity</button>
+            <button class="filter-btn gallery-filter-btn" data-category="hardware">Hardware</button>
+            <button class="filter-btn gallery-filter-btn" data-category="editing">Editing</button>
+            <button class="filter-btn gallery-filter-btn" data-category="college">College Projects</button>
+          </div>
+
+          <!-- Add Photo Simulation Button -->
+          <button id="open-upload-btn" class="btn btn-secondary" style="padding: 9px 18px; font-size: 0.88rem;">
+            <span>📸</span> <span>Add Project Photo</span>
+          </button>
+        </div>
+
+        <!-- Responsive Gallery Grid -->
+        <div class="gallery-grid" id="gallery-grid" style="margin-top: 24px;">
+          <!-- Populated from data.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         7. EDUCATION SECTION
+         ====================================================================== -->
+    <section id="education" class="section reveal">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="badge-dot"></span>
+            <span>Academic Pathway</span>
+          </div>
+          <h2 class="section-title">Education <span class="gradient-text">Timeline</span></h2>
+          <p class="section-subtitle">
+            Formal technical education, foundational coursework, and practical diplomas.
+          </p>
+        </div>
+
+        <div class="timeline" id="education-timeline">
+          <!-- Populated from data.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         8. ACHIEVEMENTS & CERTIFICATIONS
+         ====================================================================== -->
+    <section id="achievements" class="section reveal">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="badge-dot"></span>
+            <span>Credentials</span>
+          </div>
+          <h2 class="section-title">Achievements & <span class="gradient-text">Certifications</span></h2>
+          <p class="section-subtitle">
+            Workshops, technical recognitions, and competitive milestones.
+          </p>
+        </div>
+
+        <div class="achievements-grid" id="achievements-grid">
+          <!-- Populated from data.js -->
+        </div>
+
+        <div class="achievements-notice-banner">
+          <span style="color: var(--cyan); font-size: 1.2rem;">⚡</span>
+          <span>More achievements coming soon... Continuing practical coursework and authorized certifications.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         10. MY INTERESTS
+         ====================================================================== -->
+    <section id="interests" class="section reveal">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="badge-dot"></span>
+            <span>Passions & Hobbies</span>
+          </div>
+          <h2 class="section-title">My <span class="gradient-text">Interests</span></h2>
+          <p class="section-subtitle">
+            What sparks my enthusiasm and drives my technical curiosity outside regular hours.
+          </p>
+        </div>
+
+        <div class="interests-grid" id="interests-grid">
+          <!-- Populated from data.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         11. SOCIAL MEDIA SECTION
+         ====================================================================== -->
+    <section id="social-media" class="section reveal">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="badge-dot"></span>
+            <span>Digital Presence</span>
+          </div>
+          <h2 class="section-title">Connect on <span class="gradient-text">Social Media</span></h2>
+          <p class="section-subtitle">
+            Catch my personal feeds, creative design stories, and upcoming YouTube video demonstrations.
+          </p>
+        </div>
+
+        <div class="socials-grid" id="socials-grid">
+          <!-- Populated from data.js (Instagram, Snapchat, YouTube) -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         12. CONTACT ME SECTION
+         ====================================================================== -->
+    <section id="contact" class="section reveal">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="badge-dot"></span>
+            <span>Transmission Node</span>
+          </div>
+          <h2 class="section-title">Contact <span class="gradient-text">Me</span></h2>
+          <p class="section-subtitle">
+            Have a project in mind, a technical opportunity, or want to collaborate? Send a message directly.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Direct Contact Information -->
+          <div class="contact-info-panel glass-card">
+            <div>
+              <h3 style="font-size: 1.4rem; margin-bottom: 8px;">Direct Communication</h3>
+              <p style="font-size: 0.95rem; color: var(--text-secondary);">
+                Feel free to email or call for project collaborations, technical inquiries, or student networking.
+              </p>
+
+              <div class="contact-methods">
+                <!-- Email -->
+                <div class="contact-method-card">
+                  <div class="contact-method-icon">✉️</div>
+                  <div class="contact-method-meta">
+                    <span class="contact-label">Email Address</span>
+                    <a href="mailto:rahulteja2367@gmail.com" class="contact-value">rahulteja2367@gmail.com</a>
+                  </div>
+                  <button class="btn btn-secondary btn-icon" title="Copy Email" onclick="copyToClipboard('rahulteja2367@gmail.com', 'Email')">📋</button>
+                </div>
+
+                <!-- Phone -->
+                <div class="contact-method-card">
+                  <div class="contact-method-icon">📞</div>
+                  <div class="contact-method-meta">
+                    <span class="contact-label">Phone Number</span>
+                    <a href="tel:+918886132131" class="contact-value">+91 8886132131</a>
+                  </div>
+                  <button class="btn btn-secondary btn-icon" title="Copy Phone Number" onclick="copyToClipboard('+918886132131', 'Phone')">📋</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Links Quick Strip -->
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 12px;">
+                Social Platforms:
+              </div>
+              <div style="display: flex; gap: 12px;">
+                <a href="https://instagram.com/ft.varunnz" target="_blank" rel="noopener noreferrer" class="social-circle-btn" title="Instagram @ft.varunnz">📸</a>
+                <a href="https://www.snapchat.com/add/teja_rocz" target="_blank" rel="noopener noreferrer" class="social-circle-btn" title="Snapchat teja_rocz">👻</a>
+                <a href="https://www.youtube.com/@varunteja" target="_blank" rel="noopener noreferrer" class="social-circle-btn" title="YouTube Channel">▶️</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Glassmorphic Contact Form -->
+          <div class="contact-form-panel glass-card">
+            <h3 style="font-size: 1.4rem; margin-bottom: 20px;">Send a Direct Message</h3>
+            
+            <form id="portfolio-contact-form">
+              <div class="form-group">
+                <label for="contact-name" class="form-label">Full Name</label>
+                <input type="text" id="contact-name" class="form-input" placeholder="Your name or organization" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="form-label">Email Address</label>
+                <input type="email" id="contact-email" class="form-input" placeholder="name@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-subject" class="form-label">Subject</label>
+                <input type="text" id="contact-subject" class="form-input" placeholder="Project Inquiry / Collaboration / Greeting" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Message</label>
+                <textarea id="contact-message" class="form-textarea" placeholder="Type your message here..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                <span>Send Message</span>
+                <span>⚡</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       13. FOOTER
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3 class="footer-title">Varun Teja</h3>
+          <div class="footer-tagline">"Student • Programmer • Cybersecurity Enthusiast • Hardware Enthusiast"</div>
+          <p class="footer-bio">
+            Passionate about building software, experimenting with electronics hardware, and deepening cybersecurity proficiency.
+          </p>
+        </div>
+
+        <div class="footer-nav">
+          <div>
+            <div class="footer-nav-col-title">Navigation</div>
+            <ul class="footer-nav-list">
+              <li><a href="#home" class="footer-nav-link">Home</a></li>
+              <li><a href="#about" class="footer-nav-link">About</a></li>
+              <li><a href="#skills" class="footer-nav-link">Skills</a></li>
+              <li><a href="#projects" class="footer-nav-link">Projects</a></li>
+              <li><a href="#contact" class="footer-nav-link">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer-nav-col-title">Social Links</div>
+            <div class="footer-social-icons">
+              <a href="https://instagram.com/ft.varunnz" target="_blank" rel="noopener noreferrer" class="social-circle-btn" title="Instagram">📸</a>
+              <a href="https://www.snapchat.com/add/teja_rocz" target="_blank" rel="noopener noreferrer" class="social-circle-btn" title="Snapchat">👻</a>
+              <a href="https://www.youtube.com/@varunteja" target="_blank" rel="noopener noreferrer" class="social-circle-btn" title="YouTube">▶️</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Varun Teja. All Rights Reserved.</div>
+        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--cyan);">DESIGNED WITH CYBER-GLASSMORPHISM</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       MODALS & LIGHTBOX CONTAINERS
+       ======================================================================== -->
+  <!-- Project Details Modal -->
+  <div id="project-modal" class="modal-overlay">
+    <div class="modal-card">
+      <button class="lightbox-close" id="modal-close-btn" aria-label="Close Project Details">✕</button>
+      <div id="project-modal-body">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen Image Viewer / Lightbox -->
+  <div id="gallery-lightbox" class="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox">✕</button>
+    <button class="lightbox-nav-btn lightbox-prev" id="lightbox-prev" aria-label="Previous Image">‹</button>
+    <button class="lightbox-nav-btn lightbox-next" id="lightbox-next" aria-label="Next Image">›</button>
+
+    <div class="lightbox-content-box">
+      <div class="lightbox-img-wrap">
+        <img id="lightbox-img" src="" alt="Project Image Preview">
+      </div>
+      <div class="lightbox-details">
+        <h3 id="lightbox-title" class="lightbox-title"></h3>
+        <p id="lightbox-desc" class="lightbox-desc"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Project Photo Simulation Modal -->
+  <div id="upload-modal" class="modal-overlay">
+    <div class="modal-card">
+      <button class="lightbox-close" id="close-upload-btn" aria-label="Close Upload Modal">✕</button>
+      <h3 style="font-size: 1.4rem; margin-bottom: 6px;">Add Project Photo</h3>
+      <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 20px;">
+        Add a new photo to your portfolio gallery. Photos can also be permanently configured in <code>js/data.js</code>.
+      </p>
+
+      <form id="upload-form">
+        <div class="form-group">
+          <label class="form-label" for="upload-title">Photo / Project Title</label>
+          <input type="text" id="upload-title" class="form-input" placeholder="e.g. Breadboard Sensor Circuit" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="upload-category">Category</label>
+          <select id="upload-category" class="form-input" style="cursor: pointer;">
+            <option value="coding">Coding</option>
+            <option value="cybersecurity">Cybersecurity</option>
+            <option value="hardware">Hardware</option>
+            <option value="editing">Editing</option>
+            <option value="college">College Projects</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="upload-desc">Description</label>
+          <textarea id="upload-desc" class="form-textarea" style="min-height: 80px;" placeholder="Brief details about the snapshot..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="upload-file">Select Image File</label>
+          <input type="file" id="upload-file" accept="image/*" class="form-input" style="padding: 10px;">
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+          <span>Add to Gallery Preview</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/data.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

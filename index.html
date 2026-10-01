@@ -16,7 +16,8 @@
 </head>
 <body>
 
-  <!-- Background Cyber Particle Canvas & Ambient Lighting -->
+  <!-- Background Three.js 3D WebGL Canvas, Particles & Ambient Lighting -->
+  <canvas id="webgl-canvas"></canvas>
   <canvas id="particles-canvas"></canvas>
   <div class="ambient-glow ambient-glow-1"></div>
   <div class="ambient-glow ambient-glow-2"></div>
@@ -49,6 +50,9 @@
       </nav>
 
       <div class="nav-actions">
+        <button id="cyber-sound-toggle" class="cyber-sound-btn" title="Toggle Cyber Audio FX" aria-label="Toggle Sound Effects">
+          <span>🔈</span> <span class="sound-label">AUDIO: OFF</span>
+        </button>
         <a href="#contact" class="btn btn-primary nav-cta-btn">Connect</a>
       </div>
 
@@ -98,20 +102,14 @@
           </div>
         </div>
 
-        <!-- Futuristic Technology Visual Graphic -->
+        <!-- Futuristic Technology Visual Graphic with Three.js 3D Core -->
         <div class="hero-visual-container">
-          <div class="hero-tech-card">
-            <!-- Orbital Circuit Visualizer -->
-            <div class="tech-graphic-core">
-              <div class="orbital-ring ring-1"></div>
-              <div class="orbital-ring ring-2"></div>
-              <div class="orbital-ring ring-3"></div>
+          <div class="hero-tech-card glass-card">
+            <!-- 3D WebGL Holographic Cyber Core -->
+            <div class="tech-graphic-core" style="position: relative; display: flex; align-items: center; justify-content: center;">
+              <canvas id="hero-three-canvas" width="260" height="260"></canvas>
               
-              <div class="core-avatar-plate">
-                <span>VT</span>
-              </div>
-
-              <!-- Floating Cyber Badges -->
+              <!-- Floating Cyber Badges with 3D Float -->
               <div class="floating-tech-badge badge-top-left">
                 <span>💻</span> <span>Python & C</span>
               </div>
@@ -613,9 +611,12 @@
     </div>
   </div>
 
-  <!-- JavaScript Modules -->
+  <!-- JavaScript Modules & Illusion Engines -->
   <script src="js/data.js"></script>
+  <script src="js/three.min.js"></script>
+  <script src="js/three-scene.js"></script>
   <script src="js/particles.js"></script>
+  <script src="js/illusion-fx.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

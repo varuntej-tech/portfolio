@@ -1679,3 +1679,239 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ==============================================================================
+   14. THREE.JS 3D CANVASES & ILLUSION EFFECTS
+   ============================================================================== */
+
+/* Fullscreen Background 3D WebGL Canvas */
+#webgl-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Hero Interactive 3D WebGL Holographic Core */
+#hero-three-canvas {
+  width: 260px;
+  height: 260px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 25px rgba(0, 242, 254, 0.45));
+  cursor: grab;
+  transition: filter var(--transition-normal);
+}
+#hero-three-canvas:active {
+  cursor: grabbing;
+}
+
+/* Scroll Depth Progress Bar */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3.5px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--cyan), var(--purple), #38bdf8, #00ff87);
+  z-index: 99999;
+  box-shadow: 0 0 14px var(--cyan), 0 0 22px rgba(168, 85, 247, 0.6);
+  pointer-events: none;
+  transition: width 0.08s ease-out;
+}
+
+/* Specular Light Sheen for 3D Card Parallax Tilt */
+.glass-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.card-sheen {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: screen;
+}
+
+/* Cyber Click Shockwave */
+.cyber-shockwave {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--cyan);
+  pointer-events: none;
+  z-index: 99990;
+  box-shadow: 0 0 16px var(--cyan), inset 0 0 12px rgba(0, 242, 254, 0.4);
+  animation: cyberShockwavePulse 0.58s cubic-bezier(0.12, 0.8, 0.32, 1) forwards;
+}
+
+@keyframes cyberShockwavePulse {
+  0% {
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+    border-width: 3px;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    width: 130px;
+    height: 130px;
+    opacity: 0;
+    border-width: 1px;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Cyber Spark Particles */
+.cyber-spark {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99991;
+  animation: cyberSparkFly 0.52s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cyberSparkFly {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Custom Cyber HUD Cursor */
+.cyber-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  margin-left: -3px;
+  background-color: var(--cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 100000;
+  box-shadow: 0 0 10px var(--cyan), 0 0 20px var(--cyan);
+  will-change: transform;
+}
+
+.cyber-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 34px;
+  margin-top: -17px;
+  margin-left: -17px;
+  border: 1.5px solid rgba(0, 242, 254, 0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  will-change: transform;
+  transition: width 0.25s, height 0.25s, margin 0.25s, border-color 0.25s, background-color 0.25s;
+}
+
+.cyber-cursor-ring .reticle-bracket {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-color: var(--cyan);
+  border-style: solid;
+  pointer-events: none;
+}
+.reticle-bracket.top-left {
+  top: 2px;
+  left: 2px;
+  border-width: 1.5px 0 0 1.5px;
+}
+.reticle-bracket.top-right {
+  top: 2px;
+  right: 2px;
+  border-width: 1.5px 1.5px 0 0;
+}
+.reticle-bracket.bottom-left {
+  bottom: 2px;
+  left: 2px;
+  border-width: 0 0 1.5px 1.5px;
+}
+.reticle-bracket.bottom-right {
+  bottom: 2px;
+  right: 2px;
+  border-width: 0 1.5px 1.5px 0;
+}
+
+.cyber-cursor-ring.cursor-hover {
+  width: 48px;
+  height: 48px;
+  margin-top: -24px;
+  margin-left: -24px;
+  border-color: var(--cyan);
+  background-color: rgba(0, 242, 254, 0.08);
+  box-shadow: 0 0 18px rgba(0, 242, 254, 0.35);
+  animation: cursorRotate 8s linear infinite;
+}
+
+@keyframes cursorRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.cyber-cursor-ring.cursor-clicking {
+  transform: scale(0.8) !important;
+  border-color: #ffffff;
+  background-color: rgba(0, 242, 254, 0.25);
+}
+
+/* Sound FX Toggle in Navbar */
+.cyber-sound-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid var(--border-glass-bright);
+  border-radius: var(--border-radius-full);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(10px);
+}
+.cyber-sound-btn:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+}
+.cyber-sound-btn.active {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  background: rgba(0, 242, 254, 0.12);
+  box-shadow: 0 0 18px rgba(0, 242, 254, 0.3);
+}
+
+/* Hide custom cursor on mobile touch screens */
+@media (pointer: coarse), (hover: none) {
+  .cyber-cursor-dot,
+  .cyber-cursor-ring {
+    display: none !important;
+  }
+}
+

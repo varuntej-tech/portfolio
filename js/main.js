@@ -209,6 +209,8 @@ document.addEventListener("DOMContentLoaded", () => {
         openProjectModal(projId);
       });
     });
+
+    if (window.init3DCardTilt) window.init3DCardTilt();
   }
 
   renderProjects("all");
@@ -306,6 +308,8 @@ document.addEventListener("DOMContentLoaded", () => {
         openLightbox(index);
       });
     });
+
+    if (window.init3DCardTilt) window.init3DCardTilt();
   }
 
   renderGallery("all");

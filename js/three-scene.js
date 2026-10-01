@@ -64,11 +64,12 @@
   const originalPositions = new Float32Array(particleCount * 3);
 
   const colorPalette = [
-    new THREE.Color(0x00f2fe), // Cyan
-    new THREE.Color(0xa855f7), // Purple
-    new THREE.Color(0x38bdf8), // Neon Blue
-    new THREE.Color(0x10b981), // Emerald
-    new THREE.Color(0xffffff)  // Sparkle
+    new THREE.Color(0x00f5ff), // Electric Cyan
+    new THREE.Color(0xb537f2), // Ultra Violet
+    new THREE.Color(0xff007f), // Cyber Magenta
+    new THREE.Color(0x00f5a0), // Neon Emerald
+    new THREE.Color(0xffbe0b), // Electric Gold
+    new THREE.Color(0xffffff)  // Diamond Sparkle
   ];
 
   for (let i = 0; i < particleCount; i++) {
@@ -103,8 +104,8 @@
     const ctx = canvas.getContext("2d");
     const gradient = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
     gradient.addColorStop(0, "rgba(255,255,255,1)");
-    gradient.addColorStop(0.3, "rgba(0,242,254,0.8)");
-    gradient.addColorStop(0.7, "rgba(168,85,247,0.3)");
+    gradient.addColorStop(0.25, "rgba(0,245,255,0.9)");
+    gradient.addColorStop(0.55, "rgba(181,55,242,0.45)");
     gradient.addColorStop(1, "rgba(0,0,0,0)");
     ctx.fillStyle = gradient;
     ctx.beginPath();
@@ -114,11 +115,11 @@
   }
 
   const particleMaterial = new THREE.PointsMaterial({
-    size: 5,
+    size: 5.5,
     vertexColors: true,
     map: createParticleTexture(),
     transparent: true,
-    opacity: 0.75,
+    opacity: 0.85,
     blending: THREE.AdditiveBlending,
     depthWrite: false
   });
@@ -127,9 +128,9 @@
   bgScene.add(particleSystem);
 
   // --- Infinite 3D Cyber Horizon Grid Plane ---
-  const gridHelper = new THREE.GridHelper(3000, 50, 0x00f2fe, 0x1e293b);
+  const gridHelper = new THREE.GridHelper(3000, 50, 0x00f5ff, 0x1e1b4b);
   gridHelper.position.y = -350;
-  gridHelper.material.opacity = 0.22;
+  gridHelper.material.opacity = 0.28;
   gridHelper.material.transparent = true;
   gridHelper.material.blending = THREE.AdditiveBlending;
   bgScene.add(gridHelper);
@@ -146,13 +147,14 @@
     new THREE.TorusGeometry(20, 4, 8, 20)
   ];
 
+  const wireColors = [0x00f5ff, 0xb537f2, 0xff007f];
   for (let i = 0; i < 14; i++) {
     const geom = geomTypes[i % geomTypes.length];
     const wireMat = new THREE.MeshBasicMaterial({
-      color: i % 2 === 0 ? 0x00f2fe : 0xa855f7,
+      color: wireColors[i % wireColors.length],
       wireframe: true,
       transparent: true,
-      opacity: 0.35,
+      opacity: 0.45,
       blending: THREE.AdditiveBlending
     });
     const mesh = new THREE.Mesh(geom, wireMat);
@@ -203,10 +205,10 @@
     // Outer Holographic Wireframe Icosahedron
     const icoGeom = new THREE.IcosahedronGeometry(42, 1);
     const icoMat = new THREE.MeshBasicMaterial({
-      color: 0x00f2fe,
+      color: 0x00f5ff,
       wireframe: true,
       transparent: true,
-      opacity: 0.75,
+      opacity: 0.85,
       blending: THREE.AdditiveBlending
     });
     heroIcosahedron = new THREE.Mesh(icoGeom, icoMat);
@@ -215,9 +217,9 @@
     // Icosahedron Vertex Points
     const icoPointsMat = new THREE.PointsMaterial({
       color: 0xffffff,
-      size: 4,
+      size: 4.5,
       transparent: true,
-      opacity: 0.9,
+      opacity: 0.95,
       blending: THREE.AdditiveBlending
     });
     const icoPoints = new THREE.Points(icoGeom, icoPointsMat);
@@ -226,10 +228,10 @@
     // Inner Glowing Core Sphere
     const sphereGeom = new THREE.SphereGeometry(18, 16, 16);
     const sphereMat = new THREE.MeshBasicMaterial({
-      color: 0xa855f7,
+      color: 0xff007f,
       wireframe: true,
       transparent: true,
-      opacity: 0.6,
+      opacity: 0.75,
       blending: THREE.AdditiveBlending
     });
     heroInnerSphere = new THREE.Mesh(sphereGeom, sphereMat);
@@ -241,15 +243,15 @@
       const ringMat = new THREE.MeshBasicMaterial({
         color: color,
         transparent: true,
-        opacity: 0.55,
+        opacity: 0.65,
         blending: THREE.AdditiveBlending
       });
       return new THREE.Mesh(ringGeom, ringMat);
     }
 
-    heroRing1 = createGimbalRing(55, 0x00f2fe, 0.7);
-    heroRing2 = createGimbalRing(65, 0xa855f7, 0.6);
-    heroRing3 = createGimbalRing(74, 0x10b981, 0.5);
+    heroRing1 = createGimbalRing(55, 0x00f5ff, 0.8);
+    heroRing2 = createGimbalRing(65, 0xb537f2, 0.7);
+    heroRing3 = createGimbalRing(74, 0x00f5a0, 0.6);
 
     heroRing1.rotation.x = Math.PI / 4;
     heroRing2.rotation.y = Math.PI / 3;

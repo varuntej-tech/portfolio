@@ -79,9 +79,12 @@ c:/PORTFILIO/
 ├── README.md               # Documentation and customization guide
 ├── css/
 │   ├── style.css           # Glassmorphism tokens, reset, typography, ambient glows
-│   └── components.css      # Component styling (Navbar, Hero, Modals, Timeline, Forms)
+│   └── components.css      # Component styling (Navbar, Hero, Modals, Timeline, Illusion FX)
 ├── js/
 │   ├── data.js             # Central data configuration (Projects, Gallery, Skills, Links)
+│   ├── three.min.js        # Three.js 3D WebGL Library (Local offline support)
+│   ├── three-scene.js      # 3D Cyber Nebula, Scroll Warp Travel, & Hero Hologram Core
+│   ├── illusion-fx.js      # 3D Card Parallax Tilt, Click Shockwave, Cyber HUD Cursor, & Audio FX
 │   ├── particles.js        # High-performance canvas particle constellation
 │   └── main.js             # Dynamic rendering, lightbox, filters, form handler
 └── assets/

@@ -307,6 +307,36 @@
     }
   });
 
+  // Mobile Touch Move Interaction
+  window.addEventListener("touchmove", (e) => {
+    if (e.touches && e.touches[0]) {
+      const touch = e.touches[0];
+      mouse.targetX = (touch.clientX / window.innerWidth) * 2 - 1;
+      mouse.targetY = -(touch.clientY / window.innerHeight) * 2 + 1;
+    }
+  }, { passive: true });
+
+  // Mobile Gyroscope 3D Parallax Illusion (Phone Tilt)
+  if (window.DeviceOrientationEvent) {
+    window.addEventListener("deviceorientation", (e) => {
+      if (e.gamma !== null && e.beta !== null) {
+        // gamma: left-to-right (-45 to 45 degrees clamp)
+        const clampedGamma = Math.max(-45, Math.min(45, e.gamma));
+        // beta: front-to-back tilt (centered at ~45deg for typical phone hold)
+        const clampedBeta = Math.max(-45, Math.min(45, e.beta - 45));
+
+        mouse.targetX = (clampedGamma / 45);
+        mouse.targetY = -(clampedBeta / 45);
+
+        if (heroCanvas) {
+          mouse.heroX = mouse.targetX * 0.8;
+          mouse.heroY = mouse.targetY * 0.8;
+          mouse.isHoveringHero = true;
+        }
+      }
+    }, { passive: true });
+  }
+
   // Handle Resize
   function onWindowResize() {
     bgCamera.aspect = window.innerWidth / window.innerHeight;

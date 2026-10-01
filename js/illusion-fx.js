@@ -1,21 +1,46 @@
 /**
  * ==============================================================================
- * VARUN TEJA PORTFOLIO - CYBER ILLUSION EFFECTS ENGINE
+ * VARUN TEJA PORTFOLIO - CYBER ILLUSION EFFECTS & RESPONSIVE ENGINE
  * Features:
- * 1. 3D Card Gyro / Mouse Parallax Tilt with Dynamic Specular Glare Sheen
- * 2. Cyber Click Shockwave & Particle Spark Bursts
- * 3. Smooth Custom Cyber Cursor with HUD Reticle Targeting
- * 4. Scroll Depth Progress Indicator & Kinetic Parallax
- * 5. Web Audio API Cyber Synth Feedback (Self-contained, Zero Audio Assets)
+ * 1. 3D Card Parallax Tilt & Specular Glare Sheen (Desktop & Mobile Gyroscope)
+ * 2. Magnetic Button Pull Illusion (Desktop)
+ * 3. Mobile Touch Tap Shockwave & Neon Spark Bursts
+ * 4. Interactive Global Cyber Spotlight Torch Illusion
+ * 5. Hacker Text Scramble / Hologram Decryption Illusion
+ * 6. Smooth Custom Cyber Cursor with HUD Reticle Targeting
+ * 7. Scroll Depth Progress Indicator & Kinetic Parallax
+ * 8. Web Audio API Cyber Synth Feedback (Self-contained, Zero Audio Assets)
  * ==============================================================================
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // ============================================================================
-  // 1. CUSTOM CYBER CURSOR & HUD RETICLE
-  // ============================================================================
   const isTouchDevice = () => window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window;
 
+  // ============================================================================
+  // 1. GLOBAL CYBER SPOTLIGHT TORCH ILLUSION
+  // ============================================================================
+  const spotlight = document.createElement("div");
+  spotlight.id = "cyber-spotlight";
+  spotlight.className = "cyber-spotlight";
+  document.body.appendChild(spotlight);
+
+  function updateSpotlight(x, y) {
+    spotlight.style.background = `radial-gradient(650px circle at ${x}px ${y}px, rgba(0, 245, 255, 0.07), rgba(181, 55, 242, 0.03) 40%, transparent 70%)`;
+  }
+
+  window.addEventListener("mousemove", (e) => {
+    updateSpotlight(e.clientX, e.clientY);
+  }, { passive: true });
+
+  window.addEventListener("touchmove", (e) => {
+    if (e.touches && e.touches[0]) {
+      updateSpotlight(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: true });
+
+  // ============================================================================
+  // 2. CUSTOM CYBER CURSOR & HUD RETICLE (DESKTOP)
+  // ============================================================================
   if (!isTouchDevice()) {
     const cursorDot = document.createElement("div");
     cursorDot.id = "cyber-cursor-dot";
@@ -39,7 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let ringX = mouseX;
     let ringY = mouseY;
     let isHovering = false;
-    let isMouseDown = false;
 
     window.addEventListener("mousemove", (e) => {
       mouseX = e.clientX;
@@ -48,16 +72,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     window.addEventListener("mousedown", () => {
-      isMouseDown = true;
       cursorRing.classList.add("cursor-clicking");
     });
 
     window.addEventListener("mouseup", () => {
-      isMouseDown = false;
       cursorRing.classList.remove("cursor-clicking");
     });
 
-    // Render loop with smooth damping
+    // Render loop with smooth spring damping
     function renderCursor() {
       ringX += (mouseX - ringX) * 0.18;
       ringY += (mouseY - ringY) * 0.18;
@@ -68,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderCursor();
 
     // Hover detection on interactive items
-    const interactiveSelectors = "a, button, .filter-btn, .project-card, .gallery-item, .role-card, .social-card, input, textarea, select, .btn, .view-project-btn";
+    const interactiveSelectors = "a, button, .filter-btn, .project-card, .gallery-item, .role-card, .social-card, input, textarea, select, .btn, .view-project-btn, .brand-badge";
     
     function attachCursorHover() {
       document.querySelectorAll(interactiveSelectors).forEach((el) => {
@@ -88,12 +110,49 @@ document.addEventListener("DOMContentLoaded", () => {
     const observer = new MutationObserver(() => {
       attachCursorHover();
       init3DCardTilt();
+      initMagneticButtons();
     });
     observer.observe(document.body, { childList: true, subtree: true });
   }
 
   // ============================================================================
-  // 2. 3D CARD PARALLAX TILT & SPECULAR SHEEN ILLUSION
+  // 3. MAGNETIC BUTTON PULL ILLUSION (DESKTOP)
+  // ============================================================================
+  window.initMagneticButtons = initMagneticButtons;
+  function initMagneticButtons() {
+    if (isTouchDevice()) return;
+
+    const magneticElements = document.querySelectorAll(
+      ".btn, .nav-cta-btn, .social-circle-btn, .filter-btn, .brand-badge, .cyber-sound-btn"
+    );
+
+    magneticElements.forEach((el) => {
+      if (el.dataset.magneticInit) return;
+      el.dataset.magneticInit = "true";
+
+      el.addEventListener("mousemove", (e) => {
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - (rect.left + rect.width / 2);
+        const y = e.clientY - (rect.top + rect.height / 2);
+
+        // Pull toward cursor by 35% of offset
+        el.style.transform = `translate(${x * 0.35}px, ${y * 0.35}px) scale(1.03)`;
+      });
+
+      el.addEventListener("mouseleave", () => {
+        el.style.transform = "translate(0px, 0px) scale(1)";
+        el.style.transition = "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)";
+        setTimeout(() => {
+          el.style.transition = "";
+        }, 400);
+      });
+    });
+  }
+
+  initMagneticButtons();
+
+  // ============================================================================
+  // 4. 3D CARD PARALLAX TILT & SPECULAR SHEEN (DESKTOP & MOBILE GYRO)
   // ============================================================================
   window.init3DCardTilt = init3DCardTilt;
   function init3DCardTilt() {
@@ -117,16 +176,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       card.addEventListener("mousemove", (e) => {
         const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left; // 0 to width
-        const y = e.clientY - rect.top;  // 0 to height
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
 
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
 
-        const deltaX = (x - centerX) / centerX; // -1 to 1
-        const deltaY = (y - centerY) / centerY; // -1 to 1
+        const deltaX = (x - centerX) / centerX;
+        const deltaY = (y - centerY) / centerY;
 
-        const maxTilt = 8.5; // Degrees
+        const maxTilt = 8.5;
         const rotateX = -deltaY * maxTilt;
         const rotateY = deltaX * maxTilt;
 
@@ -134,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Move dynamic specular light sheen
         sheen.style.opacity = "1";
-        sheen.style.background = `radial-gradient(circle 220px at ${x}px ${y}px, rgba(0, 242, 254, 0.25), rgba(168, 85, 247, 0.12), transparent 70%)`;
+        sheen.style.background = `radial-gradient(circle 220px at ${x}px ${y}px, rgba(0, 245, 255, 0.3), rgba(181, 55, 242, 0.15), transparent 70%)`;
       });
 
       card.addEventListener("mouseleave", () => {
@@ -155,14 +214,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
   init3DCardTilt();
 
+  // Mobile Gyroscope 3D Tilt for Hero Card
+  if (isTouchDevice() && window.DeviceOrientationEvent) {
+    window.addEventListener("deviceorientation", (e) => {
+      if (e.gamma !== null && e.beta !== null) {
+        const tiltX = Math.max(-14, Math.min(14, e.gamma * 0.4));
+        const tiltY = Math.max(-14, Math.min(14, (e.beta - 45) * 0.4));
+
+        const heroCard = document.querySelector(".hero-tech-card");
+        if (heroCard) {
+          heroCard.style.transform = `perspective(800px) rotateX(${-tiltY.toFixed(1)}deg) rotateY(${tiltX.toFixed(1)}deg)`;
+        }
+      }
+    }, { passive: true });
+  }
+
   // ============================================================================
-  // 3. CYBER CLICK SHOCKWAVE & PARTICLE SPARKS
+  // 5. CYBER CLICK & TOUCH TAP SHOCKWAVE WITH SPARKS
   // ============================================================================
+  // Desktop Click
   window.addEventListener("click", (e) => {
-    createClickShockwave(e.clientX, e.clientY);
-    createCyberSparks(e.clientX, e.clientY);
-    playCyberSynthSound(680, 1100, 0.04);
+    triggerCyberShockwave(e.clientX, e.clientY);
   });
+
+  // Mobile Touch Tap
+  window.addEventListener("touchstart", (e) => {
+    if (e.touches && e.touches[0]) {
+      triggerCyberShockwave(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: true });
+
+  function triggerCyberShockwave(x, y) {
+    createClickShockwave(x, y);
+    createCyberSparks(x, y);
+    playCyberSynthSound(680, 1150, 0.04);
+  }
 
   function createClickShockwave(x, y) {
     const wave = document.createElement("div");
@@ -177,8 +263,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function createCyberSparks(x, y) {
-    const sparkCount = 8;
-    const colors = ["#00f2fe", "#a855f7", "#38bdf8", "#00ff87", "#ffffff"];
+    const sparkCount = isTouchDevice() ? 6 : 10;
+    const colors = ["#00f5ff", "#b537f2", "#ff007f", "#00f5a0", "#ffffff"];
 
     for (let i = 0; i < sparkCount; i++) {
       const spark = document.createElement("div");
@@ -195,7 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
       spark.style.setProperty("--tx", `${tx}px`);
       spark.style.setProperty("--ty", `${ty}px`);
       spark.style.backgroundColor = color;
-      spark.style.boxShadow = `0 0 8px ${color}`;
+      spark.style.boxShadow = `0 0 10px ${color}`;
 
       document.body.appendChild(spark);
 
@@ -206,7 +292,47 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ============================================================================
-  // 4. SCROLL PROGRESS INDICATOR & KINETIC PARALLAX ILLUSION
+  // 6. HACKER TEXT SCRAMBLE / DECRYPTION ILLUSION
+  // ============================================================================
+  const cyberChars = "0123456789ABCDEF!<>-_\\/[]{}—=+*^?#";
+  function decryptText(element) {
+    if (element.dataset.decrypting === "true") return;
+    element.dataset.decrypting = "true";
+
+    const originalText = element.getAttribute("data-original-text") || element.innerText;
+    element.setAttribute("data-original-text", originalText);
+
+    let iteration = 0;
+    const maxIterations = originalText.length;
+    const interval = setInterval(() => {
+      element.innerText = originalText
+        .split("")
+        .map((char, index) => {
+          if (char === " " || char === "\n") return char;
+          if (index < iteration) {
+            return originalText[index];
+          }
+          return cyberChars[Math.floor(Math.random() * cyberChars.length)];
+        })
+        .join("");
+
+      if (iteration >= maxIterations) {
+        clearInterval(interval);
+        element.innerText = originalText;
+        element.dataset.decrypting = "false";
+      }
+      iteration += 1 / 2;
+    }, 30);
+  }
+
+  // Attach to Brand Logo and Section Badges
+  document.querySelectorAll(".brand-text, .hero-chip span:last-child, .section-badge span:last-child").forEach((el) => {
+    el.addEventListener("mouseenter", () => decryptText(el));
+    el.addEventListener("click", () => decryptText(el));
+  });
+
+  // ============================================================================
+  // 7. SCROLL PROGRESS INDICATOR & KINETIC PARALLAX ILLUSION
   // ============================================================================
   let progressBar = document.getElementById("scroll-progress-bar");
   if (!progressBar) {
@@ -223,7 +349,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { passive: true });
 
   // ============================================================================
-  // 5. WEB AUDIO API SYNTHETIC SOUND (Zero External MP3s)
+  // 8. WEB AUDIO API SYNTHETIC SOUND (Zero External MP3s)
   // ============================================================================
   let audioCtx = null;
   let soundEnabled = false;

@@ -294,6 +294,7 @@
   height: 220px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center 30%;
   border: 3px solid #ff2d95;
   box-shadow: 0 0 25px rgba(255, 45, 149, 0.55), 0 0 45px rgba(151, 7, 71, 0.4);
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
@@ -319,6 +320,7 @@
   height: 140px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center 30%;
   border: 3px solid #ff2d95;
   box-shadow: 0 0 20px rgba(255, 45, 149, 0.45);
   flex-shrink: 0;

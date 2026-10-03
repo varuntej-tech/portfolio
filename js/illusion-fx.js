@@ -301,6 +301,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const originalText = element.getAttribute("data-original-text") || element.innerText;
     element.setAttribute("data-original-text", originalText);
+    const originalHtml = element.getAttribute("data-original-html") || element.innerHTML;
+    element.setAttribute("data-original-html", originalHtml);
 
     let iteration = 0;
     const maxIterations = originalText.length;
@@ -318,7 +320,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (iteration >= maxIterations) {
         clearInterval(interval);
-        element.innerText = originalText;
+        element.innerHTML = originalHtml;
         element.dataset.decrypting = "false";
       }
       iteration += 1 / 2;

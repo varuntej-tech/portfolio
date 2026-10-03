@@ -417,7 +417,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ============================================================================
   const hudRailProgress = document.getElementById("scrolly-progress");
   const chapterItems = document.querySelectorAll(".scrolly-chapter-item");
-  const chapterIds = ["home", "what-i-do", "skills", "projects", "gallery", "contact"];
+  const chapterIds = ["home", "about", "skills", "projects", "education", "contact"];
 
   if (chapterItems.length > 0) {
     // Smooth chapter click navigation

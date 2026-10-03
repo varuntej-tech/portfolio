@@ -85,6 +85,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 85px;
   color-scheme: dark;
+  overflow-x: hidden;
 }
 
 body {

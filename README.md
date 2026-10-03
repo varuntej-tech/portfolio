@@ -26,7 +26,7 @@ All portfolio content is centralized inside **[`js/data.js`](js/data.js)**. You 
 
 ### 1. Updating Contact Details
 In `js/data.js` and `index.html`:
-- **Email**: Update `YOUR_EMAIL_HERE` with your personal email address.
+- **Email**: `9477143@gmail.com`
 - **Formspree**: Replace `YOUR_FORMSPREE_ID` with your actual Formspree form ID to receive messages directly in your inbox.
 
 ### 2. Updating Social Media Links

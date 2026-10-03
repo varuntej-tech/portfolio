@@ -14,7 +14,7 @@ const PORTFOLIO_DATA = {
     tagline: "Web Developer | Vibe Coder | Ethical Hacker",
     heroIntro: "I build responsive, modern web applications and leverage cutting-edge AI tools for rapid vibe coding. Alongside development, I actively practice ethical hacking to explore security and defend digital systems.",
     aboutBio: "I am a dedicated technologist specializing in web development, vibe coding, and ethical hacking. I create performant, accessible web interfaces with clean HTML, CSS, and JavaScript; utilize modern AI-assisted engineering to build and prototype software at record speed; and train in authorized cybersecurity labs to discover vulnerabilities and reinforce system defenses.",
-    email: "YOUR_EMAIL_HERE", // Replace with your actual email address
+    email: "9477143@gmail.com",
     location: "India",
     status: "Active // Building, Vibe Coding & Security Lab Practicing",
     roles: [

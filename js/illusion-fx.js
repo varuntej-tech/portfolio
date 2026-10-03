@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.appendChild(spotlight);
 
   function updateSpotlight(x, y) {
-    spotlight.style.background = `radial-gradient(650px circle at ${x}px ${y}px, rgba(0, 245, 255, 0.07), rgba(181, 55, 242, 0.03) 40%, transparent 70%)`;
+    spotlight.style.background = `radial-gradient(650px circle at ${x}px ${y}px, rgba(151, 7, 71, 0.16), rgba(255, 255, 255, 0.05) 40%, transparent 70%)`;
   }
 
   window.addEventListener("mousemove", (e) => {
@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Move dynamic specular light sheen
         sheen.style.opacity = "1";
-        sheen.style.background = `radial-gradient(circle 220px at ${x}px ${y}px, rgba(0, 245, 255, 0.3), rgba(181, 55, 242, 0.15), transparent 70%)`;
+        sheen.style.background = `radial-gradient(circle 220px at ${x}px ${y}px, rgba(151, 7, 71, 0.4), rgba(255, 255, 255, 0.22), transparent 70%)`;
       });
 
       card.addEventListener("mouseleave", () => {
@@ -264,7 +264,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function createCyberSparks(x, y) {
     const sparkCount = isTouchDevice() ? 6 : 10;
-    const colors = ["#00f5ff", "#b537f2", "#ff007f", "#00f5a0", "#ffffff"];
+    const colors = ["#970747", "#ffffff", "#d6226e", "#ff75a0", "#fce7f0"];
 
     for (let i = 0; i < sparkCount; i++) {
       const spark = document.createElement("div");
@@ -408,5 +408,69 @@ document.addEventListener("DOMContentLoaded", () => {
         if (window.showToast) window.showToast("🔈 Cyber Sound FX Muted");
       }
     });
+  }
+
+  // ============================================================================
+  // 9. SCROLLYTELLING CHAPTER TRACKER & HUD RAIL ENGINE
+  // ============================================================================
+  const hudRailProgress = document.getElementById("scrolly-progress");
+  const chapterItems = document.querySelectorAll(".scrolly-chapter-item");
+  const chapterIds = ["home", "what-i-do", "skills", "projects", "gallery", "contact"];
+
+  if (chapterItems.length > 0) {
+    // Smooth chapter click navigation
+    chapterItems.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetId = item.getAttribute("data-chapter") || item.getAttribute("href").replace("#", "");
+        const targetSec = document.getElementById(targetId);
+        if (targetSec) {
+          targetSec.scrollIntoView({ behavior: "smooth" });
+          playCyberSynthSound(520, 880, 0.05);
+        }
+      });
+    });
+
+    // Update active chapter & vertical rail progress on scroll
+    function updateScrollytelling() {
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      const viewportMid = scrollY + window.innerHeight * 0.42;
+      let activeIndex = 0;
+
+      chapterIds.forEach((id, index) => {
+        const sec = document.getElementById(id);
+        if (sec) {
+          const top = sec.offsetTop;
+          if (viewportMid >= top) {
+            activeIndex = index;
+          }
+        }
+      });
+
+      chapterItems.forEach((item, index) => {
+        if (index === activeIndex) {
+          item.classList.add("active");
+        } else {
+          item.classList.remove("active");
+        }
+      });
+
+      if (hudRailProgress && chapterItems.length > 1) {
+        const firstItem = chapterItems[0];
+        const lastItem = chapterItems[chapterItems.length - 1];
+        if (firstItem && lastItem) {
+          const totalDistance = lastItem.offsetTop - firstItem.offsetTop;
+          const currentItem = chapterItems[activeIndex];
+          if (totalDistance > 0 && currentItem) {
+            const currentDistance = currentItem.offsetTop - firstItem.offsetTop;
+            hudRailProgress.style.height = `${(currentDistance / totalDistance) * 100}%`;
+          }
+        }
+      }
+    }
+
+    window.addEventListener("scroll", updateScrollytelling, { passive: true });
+    window.addEventListener("resize", updateScrollytelling, { passive: true });
+    updateScrollytelling();
   }
 });

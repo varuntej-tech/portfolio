@@ -36,7 +36,7 @@
   if (!bgCanvas) return;
 
   const bgScene = new THREE.Scene();
-  bgScene.fog = new THREE.FogExp2(0x07090e, 0.0018);
+  bgScene.fog = new THREE.FogExp2(0x0a0106, 0.0018);
 
   const bgCamera = new THREE.PerspectiveCamera(
     60,
@@ -64,12 +64,12 @@
   const originalPositions = new Float32Array(particleCount * 3);
 
   const colorPalette = [
-    new THREE.Color(0x00f5ff), // Electric Cyan
-    new THREE.Color(0xb537f2), // Ultra Violet
-    new THREE.Color(0xff007f), // Cyber Magenta
-    new THREE.Color(0x00f5a0), // Neon Emerald
-    new THREE.Color(0xffbe0b), // Electric Gold
-    new THREE.Color(0xffffff)  // Diamond Sparkle
+    new THREE.Color(0x970747), // Dark Pink
+    new THREE.Color(0xffffff), // Crisp Diamond White
+    new THREE.Color(0xd6226e), // Luminous Rose
+    new THREE.Color(0xff75a0), // Light Blush Rose
+    new THREE.Color(0xfce7f0), // Frosted Pink
+    new THREE.Color(0x6b0532)  // Deep Wine Velvet
   ];
 
   for (let i = 0; i < particleCount; i++) {
@@ -104,8 +104,8 @@
     const ctx = canvas.getContext("2d");
     const gradient = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
     gradient.addColorStop(0, "rgba(255,255,255,1)");
-    gradient.addColorStop(0.25, "rgba(0,245,255,0.9)");
-    gradient.addColorStop(0.55, "rgba(181,55,242,0.45)");
+    gradient.addColorStop(0.28, "rgba(255,255,255,0.95)");
+    gradient.addColorStop(0.55, "rgba(151,7,71,0.65)");
     gradient.addColorStop(1, "rgba(0,0,0,0)");
     ctx.fillStyle = gradient;
     ctx.beginPath();
@@ -128,9 +128,9 @@
   bgScene.add(particleSystem);
 
   // --- Infinite 3D Cyber Horizon Grid Plane ---
-  const gridHelper = new THREE.GridHelper(3000, 50, 0x00f5ff, 0x1e1b4b);
+  const gridHelper = new THREE.GridHelper(3000, 50, 0x970747, 0x240212);
   gridHelper.position.y = -350;
-  gridHelper.material.opacity = 0.28;
+  gridHelper.material.opacity = 0.35;
   gridHelper.material.transparent = true;
   gridHelper.material.blending = THREE.AdditiveBlending;
   bgScene.add(gridHelper);
@@ -147,7 +147,7 @@
     new THREE.TorusGeometry(20, 4, 8, 20)
   ];
 
-  const wireColors = [0x00f5ff, 0xb537f2, 0xff007f];
+  const wireColors = [0x970747, 0xffffff, 0xd6226e];
   for (let i = 0; i < 14; i++) {
     const geom = geomTypes[i % geomTypes.length];
     const wireMat = new THREE.MeshBasicMaterial({
@@ -205,10 +205,10 @@
     // Outer Holographic Wireframe Icosahedron
     const icoGeom = new THREE.IcosahedronGeometry(42, 1);
     const icoMat = new THREE.MeshBasicMaterial({
-      color: 0x00f5ff,
+      color: 0x970747,
       wireframe: true,
       transparent: true,
-      opacity: 0.85,
+      opacity: 0.88,
       blending: THREE.AdditiveBlending
     });
     heroIcosahedron = new THREE.Mesh(icoGeom, icoMat);
@@ -228,10 +228,10 @@
     // Inner Glowing Core Sphere
     const sphereGeom = new THREE.SphereGeometry(18, 16, 16);
     const sphereMat = new THREE.MeshBasicMaterial({
-      color: 0xff007f,
+      color: 0xd6226e,
       wireframe: true,
       transparent: true,
-      opacity: 0.75,
+      opacity: 0.8,
       blending: THREE.AdditiveBlending
     });
     heroInnerSphere = new THREE.Mesh(sphereGeom, sphereMat);
@@ -243,15 +243,15 @@
       const ringMat = new THREE.MeshBasicMaterial({
         color: color,
         transparent: true,
-        opacity: 0.65,
+        opacity: 0.7,
         blending: THREE.AdditiveBlending
       });
       return new THREE.Mesh(ringGeom, ringMat);
     }
 
-    heroRing1 = createGimbalRing(55, 0x00f5ff, 0.8);
-    heroRing2 = createGimbalRing(65, 0xb537f2, 0.7);
-    heroRing3 = createGimbalRing(74, 0x00f5a0, 0.6);
+    heroRing1 = createGimbalRing(55, 0x970747, 0.85);
+    heroRing2 = createGimbalRing(65, 0xffffff, 0.75);
+    heroRing3 = createGimbalRing(74, 0xff75a0, 0.65);
 
     heroRing1.rotation.x = Math.PI / 4;
     heroRing2.rotation.y = Math.PI / 3;
@@ -385,20 +385,20 @@
     scrollY += (targetScrollY - scrollY) * 0.08;
     const scrollProgress = scrollY / maxScroll; // 0.0 to 1.0
 
-    // --- Background Camera Scroll Depth Illusion ---
-    // Camera glides along Z axis and rotates based on user scroll position
-    const targetCamZ = 1000 - scrollProgress * 550;
-    const targetCamY = 80 - scrollProgress * 220;
-    const targetCamRotZ = (scrollProgress - 0.5) * 0.25;
+    // --- Background Camera Scrollytelling Depth Illusion ---
+    // Camera glides dynamically through the 3D space across story chapters
+    const targetCamZ = 1000 - scrollProgress * 650;
+    const targetCamY = 80 - scrollProgress * 260;
+    const targetCamRotZ = (scrollProgress - 0.5) * 0.35;
 
-    bgCamera.position.z += (targetCamZ - bgCamera.position.z) * 0.05;
-    bgCamera.position.y += (targetCamY - bgCamera.position.y) * 0.05;
-    bgCamera.rotation.z += (targetCamRotZ - bgCamera.rotation.z) * 0.05;
+    bgCamera.position.z += (targetCamZ - bgCamera.position.z) * 0.06;
+    bgCamera.position.y += (targetCamY - bgCamera.position.y) * 0.06;
+    bgCamera.rotation.z += (targetCamRotZ - bgCamera.rotation.z) * 0.06;
 
     // Mouse parallax tilt on background camera
     bgCamera.position.x = mouse.x * 90;
     bgCamera.position.y += mouse.y * 50;
-    bgCamera.lookAt(0, -scrollProgress * 150, 0);
+    bgCamera.lookAt(0, -scrollProgress * 180, 0);
 
     // Gently rotate particle cloud
     particleSystem.rotation.y = elapsedTime * 0.04;

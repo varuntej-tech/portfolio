@@ -42,7 +42,7 @@ const PORTFOLIO_DATA = {
       id: "programming",
       title: "Programming & Coding",
       icon: "💻",
-      accent: "#00f2fe",
+      accent: "#ffffff",
       description: "Building foundational programming expertise, logic, and problem-solving through clean algorithms and scripting.",
       items: [
         { name: "Python", status: "Learning & Practicing", level: 75 },
@@ -56,7 +56,7 @@ const PORTFOLIO_DATA = {
       id: "cybersecurity",
       title: "Cybersecurity",
       icon: "🔐",
-      accent: "#a855f7",
+      accent: "#d6226e",
       description: "Understanding network architecture, security vulnerabilities, and defensive principles within authorized labs.",
       items: [
         { name: "Ethical hacking", status: "Lab Experimentation", level: 65 },
@@ -70,7 +70,7 @@ const PORTFOLIO_DATA = {
       id: "editing",
       title: "Digital Editing",
       icon: "🎨",
-      accent: "#f59e0b",
+      accent: "#ff2a85",
       description: "Creating engaging digital media, creative graphic compositions, and high-impact video edits.",
       items: [
         { name: "Photo editing", status: "Color Grading & Touchups", level: 80 },
@@ -83,7 +83,7 @@ const PORTFOLIO_DATA = {
       id: "hardware",
       title: "Electrical & Hardware",
       icon: "⚡",
-      accent: "#10b981",
+      accent: "#970747",
       description: "Hands-on tinkering with electronics, circuit diagrams, testing equipment, and microcontrollers.",
       items: [
         { name: "Basic electronics", status: "Component Identification", level: 75 },
@@ -398,37 +398,37 @@ const PORTFOLIO_DATA = {
       icon: "💻",
       title: "Coding",
       desc: "Building programs and learning different programming concepts.",
-      color: "#00f2fe"
+      color: "#ffffff"
     },
     {
       icon: "🔐",
       title: "Cybersecurity",
       desc: "Learning ethical hacking, networking, and cybersecurity concepts in authorized environments.",
-      color: "#a855f7"
+      color: "#970747"
     },
     {
       icon: "⚡",
       title: "Hardware",
       desc: "Experimenting with electronics, electrical hardware, and circuits.",
-      color: "#10b981"
+      color: "#d6226e"
     },
     {
       icon: "🎨",
       title: "Editing",
       desc: "Creating and editing digital content.",
-      color: "#f59e0b"
+      color: "#ff2a85"
     },
     {
       icon: "🧪",
       title: "Experimenting",
       desc: "Trying new technologies and turning ideas into practical projects.",
-      color: "#ec4899"
+      color: "#ffffff"
     },
     {
       icon: "🚀",
       title: "Learning",
       desc: "Continuously developing new technical skills.",
-      color: "#38bdf8"
+      color: "#970747"
     }
   ],
 
@@ -436,16 +436,16 @@ const PORTFOLIO_DATA = {
   // My Interests (Animated Icons Grid)
   // ----------------------------------------------------------------------------
   interests: [
-    { icon: "💻", name: "Programming", glow: "#00f2fe" },
-    { icon: "🔐", name: "Cybersecurity", glow: "#a855f7" },
-    { icon: "🛡️", name: "Ethical Hacking", glow: "#818cf8" },
-    { icon: "🔌", name: "Electronics", glow: "#10b981" },
-    { icon: "⚡", name: "Electrical Hardware", glow: "#34d399" },
-    { icon: "🤖", name: "Technology", glow: "#06b6d4" },
-    { icon: "🎨", name: "Digital Editing", glow: "#f59e0b" },
-    { icon: "🎮", name: "Gaming", glow: "#ec4899" },
-    { icon: "📚", name: "Learning New Things", glow: "#6366f1" },
-    { icon: "🛠️", name: "Building Projects", glow: "#00f2fe" }
+    { icon: "💻", name: "Programming", glow: "#ffffff" },
+    { icon: "🔐", name: "Cybersecurity", glow: "#970747" },
+    { icon: "🛡️", name: "Ethical Hacking", glow: "#d6226e" },
+    { icon: "🔌", name: "Electronics", glow: "#ffffff" },
+    { icon: "⚡", name: "Electrical Hardware", glow: "#970747" },
+    { icon: "🤖", name: "Technology", glow: "#ff2a85" },
+    { icon: "🎨", name: "Digital Editing", glow: "#d6226e" },
+    { icon: "🎮", name: "Gaming", glow: "#ffffff" },
+    { icon: "📚", name: "Learning New Things", glow: "#970747" },
+    { icon: "🛠️", name: "Building Projects", glow: "#ff2a85" }
   ],
 
   // ----------------------------------------------------------------------------

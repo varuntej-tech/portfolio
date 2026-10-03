@@ -35,8 +35,8 @@
       this.vx = (Math.random() - 0.5) * 0.7;
       this.vy = (Math.random() - 0.5) * 0.7;
       this.radius = Math.random() * 2 + 1;
-      this.baseColor = Math.random() > 0.4 ? "rgba(0, 242, 254," : "rgba(168, 85, 247,";
-      this.alpha = Math.random() * 0.5 + 0.2;
+      this.baseColor = Math.random() > 0.45 ? "rgba(151, 7, 71," : "rgba(255, 255, 255,";
+      this.alpha = Math.random() * 0.5 + 0.25;
     }
 
     update() {
@@ -94,7 +94,7 @@
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(0, 242, 254, ${alpha})`;
+          ctx.strokeStyle = `rgba(151, 7, 71, ${alpha})`;
           ctx.lineWidth = 0.8;
           ctx.stroke();
         }
